@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-text {
+  background: linear-gradient(90deg, #0080FF, #00CFFF);
+  background-clip: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.radial-gradient {
+  background: radial-gradient(farthest-side, rgb(0 128 255 / .25) 0%, rgb(0 207 255 / 0) 100%);
+  position: absolute;
+  width: 1200px;
+  height: 800px;
+  left: 50%;
+  translate: -50% -50px;
+  z-index: -1;
+}
