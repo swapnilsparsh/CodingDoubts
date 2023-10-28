@@ -9,12 +9,12 @@ A tool that utilizes the power of GPT to seamlessly answer your coding doubts an
 <pre><center><a href="http://codingdoubts.vercel.app/"><b>codingdoubts.vercel.app</b></a></center></pre>
 
 <h2>💻 Tech Stack</h2>
-<a href="https://tailwindcss.com/">
-  <img src="https://img.shields.io/badge/stlying-tailwind-%2338B2AC?style=for-the-badge&logo=tailwind-css" alt="Built with Tailwind">
-</a>
 <a href="https://kit.svelte.dev/">
   <img src="https://img.shields.io/badge/framework-sveltekit-%23FF3E00?style=for-the-badge&logo=svelte" alt="Built with SvelteKit">
 </a> 
+<a href="https://tailwindcss.com/">
+  <img src="https://img.shields.io/badge/stlying-tailwind-%2338B2AC?style=for-the-badge&logo=tailwind-css" alt="Built with Tailwind">
+</a>
 
 ## 🛠️ Installation Steps
 Star and Fork the Repo 🌟 and this will keep us motivated.
@@ -37,7 +37,13 @@ cd CodingDoubts
 yarn install
 ```
 
-4. Run the app
+4. Make a .env file with below variable name and enter you Open AI API Key
+
+```bash
+OPENAI_KEY
+``` 
+
+5. Run the app
 
 ```bash
 yarn run dev
