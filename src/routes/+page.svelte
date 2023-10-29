@@ -23,7 +23,7 @@
 		eventSource.addEventListener('error', (e) => {
 			errror = true
 			loading = false
-			alert('Something went wrong, please try again')
+			alert('API Limit reached, please run locally by cloning the repo.')
 		})
 
 		eventSource.addEventListener('message', (e) => {
@@ -57,13 +57,13 @@
 <section>
 	<div class="text-primary-white">
 		<form
-			class="flex flex-col md:flex-row items-center gap-0 md:gap-10 mt-8 w-full"
+			class="flex flex-col items-center w-full gap-0 mt-8 md:flex-row md:gap-10"
 			on:submit|preventDefault={() => handleSubmit()}
 		>
 			<div class="flex w-full h-[20rem] flex-col lg:h-[40rem]">
-				<label class=" font-bold" for="context">Input</label>
+				<label class="font-bold" for="context">Input</label>
 				<textarea
-					class="textarea mt-2 w-full grow overflow-auto p-4 rounded-md bg-primary-grayBlack border border-primary-OffGray focus:ring-4 focus:ring-primary-CetaceanBlue focus:border-primary-CetaceanBlue focus:outline-none"
+					class="w-full p-4 mt-2 overflow-auto border rounded-md textarea grow bg-primary-grayBlack border-primary-OffGray focus:ring-4 focus:ring-primary-CetaceanBlue focus:border-primary-CetaceanBlue focus:outline-none"
 					placeholder="Type here..."
 					name="context"
 					rows="5"
@@ -80,7 +80,7 @@
 				</button>
 			</div>
 			<div class="flex w-full h-[20rem] flex-col lg:h-[40rem]">
-				<label class=" font-bold" for="context">Output</label>
+				<label class="font-bold" for="context">Output</label>
 				<textarea
 					class="textarea mt-2 w-full grow overflow-auto p-4 rounded-md bg-primary-grayBlack border border-primary-OffGray
 					{answer.trim() === ''
