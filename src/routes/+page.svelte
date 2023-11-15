@@ -23,7 +23,7 @@
 		eventSource.addEventListener('error', (e) => {
 			errror = true
 			loading = false
-			alert('API Limit reached, please run locally by cloning the repo.')
+			alert('The free trial of my OpenAI key is over, please run locally by cloning the repo.')
 		})
 
 		eventSource.addEventListener('message', (e) => {
