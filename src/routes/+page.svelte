@@ -1,51 +1,20 @@
 <script lang="ts">
-	import { SSE } from 'sse.js'
-	import type { CreateCompletionResponse } from 'openai'
 	let context = ''
-	let loading = false
-	let errror = false
 	let answer = ''
 
 	const handleSubmit = async () => {
-		loading = true
-		errror = false
-		answer = ''
+		try {
+			const response = await fetch('/api', {
+				method: 'POST',
+				body: JSON.stringify({ context })
+			})
 
-		const eventSource = new SSE('/api', {
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			payload: JSON.stringify({ context })
-		})
-
-		context = ''
-
-		eventSource.addEventListener('error', (e) => {
-			errror = true
-			loading = false
-			alert('The free trial of my OpenAI key is over, please run locally by cloning the repo.')
-		})
-
-		eventSource.addEventListener('message', (e) => {
-			try {
-				loading = false
-
-				if (e.data === '[DONE]') {
-					return
-				}
-				const completionResponse: CreateCompletionResponse = JSON.parse(e.data)
-
-				const [{ text }] = completionResponse.choices
-
-				answer = (answer ?? '') + text
-			} catch (err) {
-				errror = true
-				loading = false
-				console.error(err)
-				alert('Something went wrong, please try again')
-			}
-		})
-		eventSource.stream()
+			const data = await response.json()
+			answer = data.message.replace(/\*\*(.*?)\*\*/g, '$1') || 'No response message received'
+		} catch (error) {
+			console.error('Error:', error)
+			answer = 'An error occurred while fetching the response'
+		}
 	}
 </script>
 

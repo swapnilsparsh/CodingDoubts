@@ -1,10 +1,13 @@
 ## Coding Doubts
+
 ![CodingDoubts](https://github.com/swapnilsparsh/CodingDoubts/blob/master/static/Meta.jpeg)
 
 ## 📌 Introduction
-A tool that utilizes the power of GPT to seamlessly answer your coding doubts and queries.
 
-##  🚀 View Live Demo
+A tool that utilizes the power of AI to seamlessly answer your coding doubts and queries.
+
+## 🚀 View Live Demo
+
 <img src="https://img.shields.io/badge/website-up-greene" />
 <pre><center><a href="http://codingdoubts.vercel.app/"><b>codingdoubts.vercel.app</b></a></center></pre>
 
@@ -17,6 +20,7 @@ A tool that utilizes the power of GPT to seamlessly answer your coding doubts an
 </a>
 
 ## 🛠️ Installation Steps
+
 Star and Fork the Repo 🌟 and this will keep us motivated.
 
 1. Clone the repository
@@ -37,13 +41,15 @@ cd CodingDoubts
 yarn install
 ```
 
-4. Make a .env file with below variable name and enter you Open AI API Key
+4. Get you API key from [here](https://aistudio.google.com/app/apikey)
+
+5. Make a .env file with below variable name and enter you Gemini API Key
 
 ```bash
-OPENAI_KEY
-``` 
+GEMINI_KEY
+```
 
-5. Run the app
+6. Run the app
 
 ```bash
 yarn run dev
