@@ -1,8 +1,13 @@
 <script lang="ts">
 	let context = ''
 	let answer = ''
+	let isLoading = false
+	let isDisabled = false
 
 	const handleSubmit = async () => {
+		isLoading = true
+		isDisabled = true
+
 		try {
 			const response = await fetch('/api', {
 				method: 'POST',
@@ -14,6 +19,9 @@
 		} catch (error) {
 			console.error('Error:', error)
 			answer = 'An error occurred while fetching the response'
+		} finally {
+			isLoading = false
+			isDisabled = false
 		}
 	}
 </script>
@@ -41,15 +49,15 @@
 			</div>
 			<div>
 				<button
-					class=" bg-primary-CetaceanBlue py-2 px-4 w-max rounded-md mt-8
-					{context.trim() === '' ? 'cursor-not-allowed opacity-50' : ''}"
-					disabled={context.trim() === ''}
+					class="bg-primary-CetaceanBlue py-2 px-4 w-max rounded-md mt-8
+					{context.trim() === '' || isDisabled ? 'cursor-not-allowed opacity-50' : ''}"
+					disabled={context.trim() === '' || isDisabled}
 				>
-					Get Answer
+					{isLoading ? 'Loading...' : 'Get Answer'}
 				</button>
 			</div>
 			<div class="flex w-full h-[20rem] flex-col lg:h-[40rem]">
-				<label class="font-bold" for="context">Output</label>
+				<label class="font-bold" for="answer">Output</label>
 				<textarea
 					class="textarea mt-2 w-full grow overflow-auto p-4 rounded-md bg-primary-grayBlack border border-primary-OffGray
 					{answer.trim() === ''
