@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai'
 const genAI = new GoogleGenerativeAI(GEMINI_KEY)
 
 const model = genAI.getGenerativeModel({
-	model: 'gemini-1.5-flash',
+	model: 'gemini-2.0-flash',
 	systemInstruction:
 		'You are enthusiastic and senior software engineer who loves helping others. Provide a better answer or solution in 5 points without using Markdown format for the coding question, doubts and topics which is being asked by the user.',
 	generationConfig: {
